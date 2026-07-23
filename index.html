@@ -3,327 +3,392 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>포켓몬 도감 & 타운 - Welcome!</title>
-    <!-- 픽셀 레트로 폰트 (NeoDunggeunmo) -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/neodunggeunmo/neodunggeunmo@v1.500/neodunggeunmo.css">
+    <title>BTS (방탄소년단) - Official Fan Space</title>
+    <!-- Pretendard Font -->
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'NeoDunggeunmo', cursive, monospace, sans-serif;
+            font-family: "Pretendard", -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
         }
 
         :root {
-            --pokered: #EE1515;
-            --pokeyellow: #FFDE00;
-            --pokeblue: #3B4CCA;
-            --pokedark: #2A75D3;
-            --bg-color: #F8F9FA;
+            --bts-purple: #8A2BE2;
+            --bts-light-purple: #B388FF;
+            --bts-dark-bg: #0D0B14;
+            --bts-card-bg: #1A162B;
+            --text-glow: rgba(179, 136, 255, 0.6);
         }
 
         body {
-            background-color: var(--bg-color);
-            color: #222;
+            background-color: var(--bts-dark-bg);
+            color: #FFFFFF;
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        /* Top Nav - Pokeball Style */
+        /* Header / Navigation */
         nav {
-            background-color: var(--pokered);
-            border-bottom: 8px solid #222;
-            padding: 1rem 5%;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.2rem 8%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: sticky;
-            top: 0;
+            background: rgba(13, 11, 20, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(179, 136, 255, 0.2);
             z-index: 1000;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
 
         .logo {
+            font-size: 1.6rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            color: #FFF;
+            text-decoration: none;
             display: flex;
             align-items: center;
-            gap: 12px;
-            color: var(--pokeyellow);
-            font-size: 1.5rem;
-            text-decoration: none;
-            text-shadow: 3px 3px 0 #222;
+            gap: 8px;
         }
 
-        /* CSS Pokeball Icon */
-        .pokeball-icon {
-            width: 32px;
-            height: 32px;
-            background: linear-gradient(to bottom, var(--pokered) 45%, #222 45%, #222 55%, white 55%);
-            border-radius: 50%;
-            border: 3px solid #222;
-            position: relative;
-            animation: spin 6s infinite linear;
-        }
-
-        .pokeball-icon::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 10px;
-            height: 10px;
-            background: white;
-            border: 3px solid #222;
-            border-radius: 50%;
+        .logo span {
+            color: var(--bts-light-purple);
+            text-shadow: 0 0 10px var(--bts-purple);
         }
 
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 1.5rem;
+            gap: 2rem;
         }
 
         .nav-links a {
-            color: white;
+            color: #DDD;
             text-decoration: none;
-            font-size: 1.1rem;
-            padding: 5px 12px;
-            border-radius: 8px;
-            transition: all 0.2s;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
         }
 
         .nav-links a:hover {
-            background-color: var(--pokeyellow);
-            color: #222;
+            color: var(--bts-light-purple);
+            text-shadow: 0 0 8px var(--bts-light-purple);
         }
 
-        /* Main Banner */
+        /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, #3B4CCA 0%, #2A75D3 100%);
-            color: white;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
-            padding: 4rem 1rem;
-            border-bottom: 6px solid #222;
+            padding: 0 1rem;
+            background: radial-gradient(circle at center, #261143 0%, var(--bts-dark-bg) 70%);
             position: relative;
-            overflow: hidden;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 6px 16px;
+            background: rgba(138, 43, 226, 0.3);
+            border: 1px solid var(--bts-light-purple);
+            border-radius: 20px;
+            color: var(--bts-light-purple);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 0 15px rgba(138, 43, 226, 0.4);
         }
 
         .hero h1 {
-            font-size: 2.8rem;
-            color: var(--pokeyellow);
-            text-shadow: 4px 4px 0 #222;
+            font-size: 4rem;
+            font-weight: 900;
+            letter-spacing: -1px;
             margin-bottom: 1rem;
+            background: linear-gradient(135deg, #FFF 30%, var(--bts-light-purple) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px var(--text-glow);
         }
 
         .hero p {
             font-size: 1.3rem;
-            text-shadow: 2px 2px 0 #000;
+            color: #BBB;
+            max-width: 600px;
+            margin-bottom: 2.5rem;
         }
 
-        /* Container Section */
+        .btn-purple {
+            padding: 0.9rem 2.2rem;
+            background: linear-gradient(135deg, var(--bts-purple), #5B2C91);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 0 20px rgba(138, 43, 226, 0.6);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+        }
+
+        .btn-purple:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 30px rgba(179, 136, 255, 0.9);
+        }
+
+        /* Section Container */
         section {
-            padding: 4rem 10%;
+            padding: 6rem 8%;
             max-width: 1200px;
             margin: 0 auto;
         }
 
         .section-title {
+            font-size: 2.2rem;
+            font-weight: 800;
             text-align: center;
-            font-size: 2rem;
-            margin-bottom: 2.5rem;
-            color: var(--pokeblue);
-            text-shadow: 2px 2px 0 var(--pokeyellow);
+            margin-bottom: 3rem;
             position: relative;
         }
 
-        /* Pokemon Cards (Pokedex Style) */
-        .pokemon-grid {
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 4px;
+            background: var(--bts-light-purple);
+            margin: 12px auto 0;
+            border-radius: 2px;
+            box-shadow: 0 0 10px var(--bts-light-purple);
+        }
+
+        /* Members / Album Grid */
+        .cards-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 2rem;
         }
 
-        .pokemon-card {
-            background: white;
-            border: 4px solid #222;
+        .card {
+            background-color: var(--bts-card-bg);
+            border: 1px solid rgba(179, 136, 255, 0.15);
             border-radius: 16px;
-            padding: 1.5rem;
-            text-align: center;
-            box-shadow: 6px 6px 0 #222;
-            transition: transform 0.2s, box-shadow 0.2s;
+            overflow: hidden;
+            transition: all 0.3s ease;
             position: relative;
-            cursor: pointer;
         }
 
-        .pokemon-card:hover {
+        .card:hover {
             transform: translateY(-8px);
-            box-shadow: 8px 12px 0 #222;
+            border-color: var(--bts-light-purple);
+            box-shadow: 0 10px 25px rgba(138, 43, 226, 0.3);
         }
 
-        .card-tag {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            font-size: 0.9rem;
-            font-weight: bold;
-            color: #888;
+        .card-img-wrapper {
+            width: 100%;
+            height: 240px;
+            overflow: hidden;
+            background: #25203B;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 3rem;
         }
 
-        .pokemon-img {
-            width: 130px;
-            height: 130px;
-            object-fit: contain;
-            margin: 1rem 0;
-            filter: drop-shadow(3px 3px 0 rgba(0,0,0,0.15));
+        .card-body {
+            padding: 1.5rem;
         }
 
-        .pokemon-name {
-            font-size: 1.4rem;
+        .card-title {
+            font-size: 1.3rem;
+            font-weight: 700;
             margin-bottom: 0.5rem;
-            color: #222;
+            color: #FFF;
         }
 
-        .type-badge {
-            display: inline-block;
-            padding: 4px 12px;
-            border-radius: 20px;
-            color: white;
+        .card-subtitle {
             font-size: 0.9rem;
-            border: 2px solid #222;
-            text-shadow: 1px 1px 0 #222;
-        }
-
-        /* Type Colors */
-        .electric { background-color: #F7D02C; color: #222; text-shadow: none; }
-        .fire { background-color: #EE8130; }
-        .water { background-color: #6390F0; }
-        .grass { background-color: #7AC74C; }
-
-        /* Retro Game Dialogue Box Section */
-        .dialogue-box {
-            background-color: white;
-            border: 6px solid #222;
-            border-radius: 12px;
-            padding: 2rem;
-            box-shadow: 6px 6px 0 var(--pokeblue);
-            position: relative;
-            margin-top: 2rem;
-        }
-
-        .dialogue-box h3 {
-            color: var(--pokered);
-            font-size: 1.5rem;
+            color: var(--bts-light-purple);
             margin-bottom: 1rem;
         }
 
-        .dialogue-box p {
-            font-size: 1.1rem;
-            line-height: 1.8;
+        .card-desc {
+            font-size: 0.95rem;
+            color: #AAA;
+        }
+
+        /* Fan Message Interactive Area */
+        .fan-zone {
+            background: linear-gradient(180deg, var(--bts-card-bg) 0%, rgba(26, 22, 43, 0.5) 100%);
+            border: 1px solid rgba(179, 136, 255, 0.2);
+            border-radius: 20px;
+            padding: 3rem;
+            text-align: center;
+            box-shadow: 0 0 30px rgba(0,0,0,0.5);
+        }
+
+        .fan-input-group {
+            display: flex;
+            gap: 10px;
+            max-width: 500px;
+            margin: 2rem auto 0;
+        }
+
+        .fan-input {
+            flex: 1;
+            padding: 0.8rem 1.2rem;
+            border-radius: 25px;
+            border: 1px solid rgba(179, 136, 255, 0.4);
+            background: rgba(13, 11, 20, 0.8);
+            color: white;
+            outline: none;
+        }
+
+        .fan-input:focus {
+            border-color: var(--bts-light-purple);
+            box-shadow: 0 0 10px var(--bts-light-purple);
         }
 
         /* Footer */
         footer {
-            background-color: #222;
-            color: white;
             text-align: center;
-            padding: 2rem;
-            margin-top: 4rem;
-            border-top: 6px solid var(--pokeyellow);
+            padding: 3rem;
+            background-color: #08060D;
+            border-top: 1px solid rgba(179, 136, 255, 0.1);
+            color: #666;
+            font-size: 0.9rem;
         }
 
-        /* Animations */
-        @keyframes spin {
-            100% { transform: rotate(360deg); }
-        }
-
-        /* Mobile Responsive */
+        /* Mobile Adjustments */
         @media (max-width: 768px) {
             .nav-links { display: none; }
-            .hero h1 { font-size: 2rem; }
-            section { padding: 2rem 5%; }
+            .hero h1 { font-size: 2.8rem; }
+            .fan-input-group { flex-direction: column; }
         }
     </style>
 </head>
 <body>
 
-    <!-- 상단 포켓몬 센터 스타일 네비게이션 -->
+    <!-- Header Navigation -->
     <nav>
-        <a href="#" class="logo">
-            <div class="pokeball-icon"></div>
-            <span>포켓몬 타운</span>
-        </a>
+        <a href="#" class="logo">BTS <span>💜</span></a>
         <ul class="nav-links">
-            <li><a href="#pokedex">도감 모음</a></li>
-            <li><a href="#guide">오박사 안내</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#discography">Discography</a></li>
+            <li><a href="#fanzone">ARMY Zone</a></li>
         </ul>
     </nav>
 
-    <!-- 메인 비주얼 (포켓몬 리그 느낌) -->
+    <!-- Hero Section -->
     <header class="hero">
-        <h1>가자, 포켓몬의 세계로!</h1>
-        <p>당신만의 최애 포켓몬을 찾고 모험을 시작해보세요!</p>
+        <span class="hero-badge">2026 GLOBAL FAN SPACE</span>
+        <h1>WE ARE BULLETPROOF</h1>
+        <p>보라해 (I PURPLE YOU) 💜<br>상대방을 믿고 서로 오래사랑하자는 의미</p>
+        <button class="btn-purple" onclick="cheerUp()">아미밤 응원하기 🔮</button>
     </header>
 
-    <!-- 스타팅 포켓몬 카드 (포켓몬 도감 스타일) -->
-    <section id="pokedex">
-        <h2 class="section-title">⚡ 대표 포켓몬 도감</h2>
-        <div class="pokemon-grid">
-            
-            <!-- 피카츄 -->
-            <div class="pokemon-card" onclick="catchPokemon('피카츄')">
-                <span class="card-tag">No.0025</span>
-                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png" alt="피카츄" class="pokemon-img">
-                <h3 class="pokemon-name">피카츄</h3>
-                <span class="type-badge electric">전기</span>
-            </div>
-
-            <!-- 파이리 -->
-            <div class="pokemon-card" onclick="catchPokemon('파이리')">
-                <span class="card-tag">No.0004</span>
-                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png" alt="파이리" class="pokemon-img">
-                <h3 class="pokemon-name">파이리</h3>
-                <span class="type-badge fire">불꽃</span>
-            </div>
-
-            <!-- 꼬부기 -->
-            <div class="pokemon-card" onclick="catchPokemon('꼬부기')">
-                <span class="card-tag">No.0007</span>
-                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png" alt="꼬부기" class="pokemon-img">
-                <h3 class="pokemon-name">꼬부기</h3>
-                <span class="type-badge water">물</span>
-            </div>
-
-            <!-- 이상해씨 -->
-            <div class="pokemon-card" onclick="catchPokemon('이상해씨')">
-                <span class="card-tag">No.0001</span>
-                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png" alt="이상해씨" class="pokemon-img">
-                <h3 class="pokemon-name">이상해씨</h3>
-                <span class="type-badge grass">풀</span>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- 오박사 대화창 인터페이스 -->
-    <section id="guide">
-        <div class="dialogue-box">
-            <h3>💬 오박사의 조언</h3>
+    <!-- About Section -->
+    <section id="about">
+        <h2 class="section-title">BTS & ARMY</h2>
+        <div style="text-align: center; max-width: 700px; margin: 0 auto; color: #CCC; font-size: 1.1rem; line-height: 1.8;">
             <p>
-                "새로운 모험가여, 환영하네! <br>
-                위의 포켓몬 카드를 클릭해서 마음에 드는 트레이너 전용 몬스터볼로 잡아보려무나!"
+                방탄소년단(BTS)은 음악을 통해 글로벌 팬덤 **ARMY**와 깊은 신뢰와 사랑을 나누는 글로벌 아티스트입니다. 
+                언어와 국경을 넘어 음악이 전하는 긍정적인 에너지와 메시지를 확인해보세요.
             </p>
         </div>
     </section>
 
-    <!-- 푸터 -->
+    <!-- Discography Section -->
+    <section id="discography">
+        <h2 class="section-title">DISCOGRAPHY</h2>
+        <div class="cards-grid">
+            
+            <div class="card">
+                <div class="card-img-wrapper">📀</div>
+                <div class="card-body">
+                    <div class="card-subtitle">ALBUM HIGHLIGHT</div>
+                    <h3 class="card-title">Proof</h3>
+                    <p class="card-desc">방탄소년단의 역사를 축약한 앤솔러지 앨범. 과거와 현재, 미래가 공존하는 명곡 수록.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-img-wrapper">✨</div>
+                <div class="card-body">
+                    <div class="card-subtitle">SINGLE</div>
+                    <h3 class="card-title">Dynamite</h3>
+                    <p class="card-desc">전 세계에 밝은 희망과 유쾌한 에너지를 전한 감각적인 팝 디스코 싱글.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-img-wrapper">💜</div>
+                <div class="card-body">
+                    <div class="card-subtitle">ALBUM HIGHLIGHT</div>
+                    <h3 class="card-title">BE</h3>
+                    <p class="card-desc">힘든 시기에도 '삶은 계속된다(Life Goes On)'는 따뜻한 위로의 메시지를 담은 앨범.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Fan Interactive Zone -->
+    <section id="fanzone">
+        <div class="fan-zone">
+            <h2 style="font-size: 2rem; margin-bottom: 0.5rem; color: var(--bts-light-purple);">💜 ARMY Message Wall</h2>
+            <p style="color: #AAA;">방탄소년단에게 전하고 싶은 한 줄 메시지를 남겨보세요!</p>
+            
+            <form class="fan-input-group" onsubmit="addMessage(event)">
+                <input type="text" id="msgInput" class="fan-input" placeholder="보라해💜 메시지를 입력하세요" required>
+                <button type="submit" class="btn-purple" style="border-radius: 25px; padding: 0.8rem 1.5rem;">보내기</button>
+            </form>
+            
+            <div id="messageBoard" style="margin-top: 2rem; display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
+                <!-- 메시지가 표시되는 공간 -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
-        <p>&copy; Pokémon / Nintendo / Creatures Inc. / GAME FREAK inc.</p>
-        <p style="font-size: 0.8rem; color: #888; margin-top: 5px;">이 페이지는 학습 및 팬 아트 목적으로 제작되었습니다.</p>
+        <p>&copy; BIGHIT MUSIC & HYBE. All Rights Reserved.</p>
+        <p style="margin-top: 5px; color: #444;">Fan-made Page for BTS & ARMY</p>
     </footer>
 
-    <!-- 인터랙티브 이벤트 -->
+    <!-- JavaScript Interactive Code -->
     <script>
-        function catchPokemon(name) {
-            alert('🔴 찌릿찌릿! ' + name + '을(를) 잡았다!');
+        let cheerCount = 0;
+
+        function cheerUp() {
+            cheerCount++;
+            alert('🔮 아미밤을 반짝였습니다! (누적 응원 수: ' + cheerCount + '회)\n보라해! 💜');
+        }
+
+        function addMessage(e) {
+            e.preventDefault();
+            const input = document.getElementById('msgInput');
+            const board = document.getElementById('messageBoard');
+            
+            if(input.value.trim() !== "") {
+                const badge = document.createElement('span');
+                badge.style.background = 'rgba(138, 43, 226, 0.3)';
+                badge.style.border = '1px solid var(--bts-light-purple)';
+                badge.style.padding = '8px 16px';
+                badge.style.borderRadius = '20px';
+                badge.style.fontSize = '0.9rem';
+                badge.style.color = '#FFF';
+                badge.style.animation = 'fadeIn 0.5s ease';
+                badge.innerText = '💜 ' + input.value;
+                
+                board.prepend(badge);
+                input.value = '';
+            }
         }
     </script>
 </body>
