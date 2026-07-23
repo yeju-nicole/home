@@ -3,393 +3,382 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BTS (방탄소년단) - Official Fan Space</title>
-    <!-- Pretendard Font -->
-    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <title>대한민국 청와대 - 국민과 함께하는 공간</title>
+    <!-- 명조체 및 깔끔한 고딕체 폰트 (Gowun Batang, Noto Serif KR) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Serif+KR:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
     <style>
+        /* 기본 초기화 */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: "Pretendard", -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+            font-family: 'Noto Serif KR', 'Gowun Batang', serif;
         }
 
         :root {
-            --bts-purple: #8A2BE2;
-            --bts-light-purple: #B388FF;
-            --bts-dark-bg: #0D0B14;
-            --bts-card-bg: #1A162B;
-            --text-glow: rgba(179, 136, 255, 0.6);
+            --cwd-blue: #0A3254;        /* 청와대 기와 푸른색 */
+            --cwd-deep-blue: #051C30;   /* 더 깊은 청색 */
+            --cwd-gold: #C5A059;        /* 상징 금색 */
+            --cwd-gold-light: #E0C793;  /* 연한 금색 */
+            --bg-paper: #FDFCF7;        /* 한지 느낌의 따뜻한 아이보리 */
+            --text-main: #1D1D1D;
+            --text-sub: #555555;
         }
 
         body {
-            background-color: var(--bts-dark-bg);
-            color: #FFFFFF;
-            line-height: 1.6;
-            overflow-x: hidden;
+            background-color: var(--bg-paper);
+            color: var(--text-main);
+            line-height: 1.8;
+            word-break: keep-all;
         }
 
-        /* Header / Navigation */
+        /* GNB / 네비게이션 */
         nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
+            background-color: var(--cwd-deep-blue);
+            border-bottom: 2px solid var(--cwd-gold);
             padding: 1.2rem 8%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(13, 11, 20, 0.85);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(179, 136, 255, 0.2);
+            position: sticky;
+            top: 0;
             z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
         }
 
         .logo {
-            font-size: 1.6rem;
-            font-weight: 900;
-            letter-spacing: 2px;
-            color: #FFF;
-            text-decoration: none;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 12px;
+            color: #FFFFFF;
+            font-size: 1.4rem;
+            font-weight: 700;
+            text-decoration: none;
+            letter-spacing: 2px;
         }
 
-        .logo span {
-            color: var(--bts-light-purple);
-            text-shadow: 0 0 10px var(--bts-purple);
+        /* 청와대 봉황 문양 상징 아이콘 (간화 형태) */
+        .symbol-emblem {
+            width: 32px;
+            height: 32px;
+            border: 1px solid var(--cwd-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--cwd-gold);
+            font-size: 0.9rem;
+            background-color: var(--cwd-blue);
         }
 
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 2rem;
+            gap: 2.5rem;
         }
 
         .nav-links a {
-            color: #DDD;
+            color: #E2E8F0;
             text-decoration: none;
             font-size: 1rem;
-            font-weight: 500;
-            transition: all 0.3s ease;
+            transition: color 0.3s;
+            letter-spacing: 1px;
         }
 
         .nav-links a:hover {
-            color: var(--bts-light-purple);
-            text-shadow: 0 0 8px var(--bts-light-purple);
+            color: var(--cwd-gold-light);
         }
 
-        /* Hero Section */
+        /* 메인 히어로 섹션 */
         .hero {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            background: linear-gradient(180deg, var(--cwd-blue) 0%, var(--cwd-deep-blue) 100%);
+            color: white;
             text-align: center;
-            padding: 0 1rem;
-            background: radial-gradient(circle at center, #261143 0%, var(--bts-dark-bg) 70%);
+            padding: 7rem 1rem 6rem;
             position: relative;
+            border-bottom: 4px double var(--cwd-gold);
         }
 
-        .hero-badge {
-            display: inline-block;
-            padding: 6px 16px;
-            background: rgba(138, 43, 226, 0.3);
-            border: 1px solid var(--bts-light-purple);
-            border-radius: 20px;
-            color: var(--bts-light-purple);
-            font-size: 0.9rem;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 0 15px rgba(138, 43, 226, 0.4);
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: radial-gradient(rgba(197, 160, 89, 0.1) 1px, transparent 0);
+            background-size: 24px 24px;
+            opacity: 0.5;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-subtitle {
+            color: var(--cwd-gold-light);
+            font-size: 1.1rem;
+            letter-spacing: 4px;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
         }
 
         .hero h1 {
-            font-size: 4rem;
-            font-weight: 900;
-            letter-spacing: -1px;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, #FFF 30%, var(--bts-light-purple) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 30px var(--text-glow);
+            font-size: 3rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
         }
 
         .hero p {
-            font-size: 1.3rem;
-            color: #BBB;
-            max-width: 600px;
+            font-size: 1.15rem;
+            color: #D1D5DB;
+            font-weight: 300;
             margin-bottom: 2.5rem;
         }
 
-        .btn-purple {
-            padding: 0.9rem 2.2rem;
-            background: linear-gradient(135deg, var(--bts-purple), #5B2C91);
-            color: white;
-            border: none;
-            border-radius: 30px;
-            font-size: 1rem;
-            font-weight: 700;
-            cursor: pointer;
-            box-shadow: 0 0 20px rgba(138, 43, 226, 0.6);
-            transition: transform 0.3s, box-shadow 0.3s;
+        .btn-gold {
+            display: inline-block;
+            padding: 0.8rem 2.2rem;
+            border: 1px solid var(--cwd-gold);
+            background-color: transparent;
+            color: var(--cwd-gold-light);
             text-decoration: none;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            cursor: pointer;
         }
 
-        .btn-purple:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 0 30px rgba(179, 136, 255, 0.9);
+        .btn-gold:hover {
+            background-color: var(--cwd-gold);
+            color: var(--cwd-deep-blue);
+            font-weight: 600;
         }
 
-        /* Section Container */
+        /* 컨텐츠 섹션 */
         section {
-            padding: 6rem 8%;
+            padding: 5rem 10%;
             max-width: 1200px;
             margin: 0 auto;
         }
 
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
         .section-title {
             font-size: 2.2rem;
-            font-weight: 800;
-            text-align: center;
-            margin-bottom: 3rem;
+            color: var(--cwd-blue);
+            font-weight: 700;
+            letter-spacing: 2px;
+            display: inline-block;
             position: relative;
+            padding-bottom: 12px;
         }
 
         .section-title::after {
             content: '';
-            display: block;
-            width: 50px;
-            height: 4px;
-            background: var(--bts-light-purple);
-            margin: 12px auto 0;
-            border-radius: 2px;
-            box-shadow: 0 0 10px var(--bts-light-purple);
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 2px;
+            background-color: var(--cwd-gold);
         }
 
-        /* Members / Album Grid */
+        /* 주요 안내 카드리스트 */
         .cards-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
         }
 
         .card {
-            background-color: var(--bts-card-bg);
-            border: 1px solid rgba(179, 136, 255, 0.15);
-            border-radius: 16px;
-            overflow: hidden;
+            background: #FFFFFF;
+            border: 1px solid #E5E7EB;
+            border-top: 3px solid var(--cwd-blue);
+            padding: 2.5rem 2rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
             transition: all 0.3s ease;
-            position: relative;
         }
 
         .card:hover {
-            transform: translateY(-8px);
-            border-color: var(--bts-light-purple);
-            box-shadow: 0 10px 25px rgba(138, 43, 226, 0.3);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(10, 50, 84, 0.1);
+            border-top-color: var(--cwd-gold);
         }
 
-        .card-img-wrapper {
-            width: 100%;
-            height: 240px;
-            overflow: hidden;
-            background: #25203B;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 3rem;
-        }
-
-        .card-body {
-            padding: 1.5rem;
+        .card-num {
+            font-size: 0.9rem;
+            color: var(--cwd-gold);
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 0.8rem;
         }
 
         .card-title {
-            font-size: 1.3rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            color: #FFF;
-        }
-
-        .card-subtitle {
-            font-size: 0.9rem;
-            color: var(--bts-light-purple);
+            font-size: 1.35rem;
+            color: var(--cwd-blue);
             margin-bottom: 1rem;
+            font-weight: 600;
         }
 
         .card-desc {
-            font-size: 0.95rem;
-            color: #AAA;
+            color: var(--text-sub);
+            font-size: 0.98rem;
+            line-height: 1.7;
         }
 
-        /* Fan Message Interactive Area */
-        .fan-zone {
-            background: linear-gradient(180deg, var(--bts-card-bg) 0%, rgba(26, 22, 43, 0.5) 100%);
-            border: 1px solid rgba(179, 136, 255, 0.2);
-            border-radius: 20px;
-            padding: 3rem;
-            text-align: center;
-            box-shadow: 0 0 30px rgba(0,0,0,0.5);
+        /* 공지/소식 게시판 스타일 */
+        .notice-board {
+            background-color: #FFFFFF;
+            border: 1px solid #E2E8F0;
+            border-radius: 4px;
+            overflow: hidden;
         }
 
-        .fan-input-group {
+        .notice-item {
             display: flex;
-            gap: 10px;
-            max-width: 500px;
-            margin: 2rem auto 0;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 1.8rem;
+            border-bottom: 1px solid #EDF2F7;
+            transition: background 0.2s;
+            text-decoration: none;
+            color: var(--text-main);
         }
 
-        .fan-input {
+        .notice-item:last-child {
+            border-bottom: none;
+        }
+
+        .notice-item:hover {
+            background-color: #F8FAFC;
+        }
+
+        .notice-title {
+            font-size: 1rem;
+            font-weight: 400;
             flex: 1;
-            padding: 0.8rem 1.2rem;
-            border-radius: 25px;
-            border: 1px solid rgba(179, 136, 255, 0.4);
-            background: rgba(13, 11, 20, 0.8);
-            color: white;
-            outline: none;
+            padding-right: 1rem;
         }
 
-        .fan-input:focus {
-            border-color: var(--bts-light-purple);
-            box-shadow: 0 0 10px var(--bts-light-purple);
+        .notice-date {
+            font-size: 0.88rem;
+            color: #888888;
         }
 
-        /* Footer */
+        /* 푸터 (하단 정보) */
         footer {
-            text-align: center;
-            padding: 3rem;
-            background-color: #08060D;
-            border-top: 1px solid rgba(179, 136, 255, 0.1);
-            color: #666;
+            background-color: var(--cwd-deep-blue);
+            color: #9CA3AF;
+            padding: 3rem 10%;
+            border-top: 1px solid var(--cwd-gold);
             font-size: 0.9rem;
+            text-align: center;
         }
 
-        /* Mobile Adjustments */
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        /* 반응형 */
         @media (max-width: 768px) {
             .nav-links { display: none; }
-            .hero h1 { font-size: 2.8rem; }
-            .fan-input-group { flex-direction: column; }
+            .hero h1 { font-size: 2rem; }
+            section { padding: 3rem 5%; }
+            .notice-item { flex-direction: column; align-items: flex-start; gap: 5px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Header Navigation -->
+    <!-- 상단 헤더 / GNB -->
     <nav>
-        <a href="#" class="logo">BTS <span>💜</span></a>
+        <a href="#" class="logo">
+            <div class="symbol-emblem">青</div>
+            <span>대한민국 청와대</span>
+        </a>
         <ul class="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#discography">Discography</a></li>
-            <li><a href="#fanzone">ARMY Zone</a></li>
+            <li><a href="#about">청와대 소개</a></li>
+            <li><a href="#guide">관람 안내</a></li>
+            <li><a href="#notice">소식 및 브리핑</a></li>
         </ul>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- 메인 히어로 섹션 -->
     <header class="hero">
-        <span class="hero-badge">2026 GLOBAL FAN SPACE</span>
-        <h1>WE ARE BULLETPROOF</h1>
-        <p>보라해 (I PURPLE YOU) 💜<br>상대방을 믿고 서로 오래사랑하자는 의미</p>
-        <button class="btn-purple" onclick="cheerUp()">아미밤 응원하기 🔮</button>
+        <div class="hero-content">
+            <p class="hero-subtitle">CHEONG WA DAE</p>
+            <h1>국민 속으로, 개방된 청와대</h1>
+            <p>역사와 자연이 살아 숨 쉬는 대한민국 소통의 공간에 오신 것을 환영합니다.</p>
+            <a href="#guide" class="btn-gold">관람 신청 및 안내 바로가기</a>
+        </div>
     </header>
 
-    <!-- About Section -->
+    <!-- 주요 명소 및 기능 소개 -->
     <section id="about">
-        <h2 class="section-title">BTS & ARMY</h2>
-        <div style="text-align: center; max-width: 700px; margin: 0 auto; color: #CCC; font-size: 1.1rem; line-height: 1.8;">
-            <p>
-                방탄소년단(BTS)은 음악을 통해 글로벌 팬덤 **ARMY**와 깊은 신뢰와 사랑을 나누는 글로벌 아티스트입니다. 
-                언어와 국경을 넘어 음악이 전하는 긍정적인 에너지와 메시지를 확인해보세요.
-            </p>
+        <div class="section-header">
+            <h2 class="section-title">주요 공간 안내</h2>
         </div>
-    </section>
-
-    <!-- Discography Section -->
-    <section id="discography">
-        <h2 class="section-title">DISCOGRAPHY</h2>
         <div class="cards-grid">
             
             <div class="card">
-                <div class="card-img-wrapper">📀</div>
-                <div class="card-body">
-                    <div class="card-subtitle">ALBUM HIGHLIGHT</div>
-                    <h3 class="card-title">Proof</h3>
-                    <p class="card-desc">방탄소년단의 역사를 축약한 앤솔러지 앨범. 과거와 현재, 미래가 공존하는 명곡 수록.</p>
-                </div>
+                <div class="card-num">01 MAIN BUILDING</div>
+                <h3 class="card-title">본관 (本館)</h3>
+                <p class="card-desc">팔작지붕 위에 15만여 개의 청기와를 얹은 청와대의 대표적 건물로, 국가의 주요 집무와 접견이 이루어지던 공간입니다.</p>
             </div>
 
             <div class="card">
-                <div class="card-img-wrapper">✨</div>
-                <div class="card-body">
-                    <div class="card-subtitle">SINGLE</div>
-                    <h3 class="card-title">Dynamite</h3>
-                    <p class="card-desc">전 세계에 밝은 희망과 유쾌한 에너지를 전한 감각적인 팝 디스코 싱글.</p>
-                </div>
+                <div class="card-num">02 RECEPTION HALL</div>
+                <h3 class="card-title">영빈관 (迎賓館)</h3>
+                <p class="card-desc">외국 국빈들을 위한 공식 행사 및 연회가 열리던 전통적 미와 현대적 기품을 간직한 대형 연회장입니다.</p>
             </div>
 
             <div class="card">
-                <div class="card-img-wrapper">💜</div>
-                <div class="card-body">
-                    <div class="card-subtitle">ALBUM HIGHLIGHT</div>
-                    <h3 class="card-title">BE</h3>
-                    <p class="card-desc">힘든 시기에도 '삶은 계속된다(Life Goes On)'는 따뜻한 위로의 메시지를 담은 앨범.</p>
-                </div>
+                <div class="card-num">03 GARDEN & PARK</div>
+                <h3 class="card-title">녹지원 & 관저</h3>
+                <p class="card-desc">수령 170여 년의 한국송이 우뚝 선 최고의 야외 정원과 대통령 및 가족이 생활하던 전통 한옥 주거 공간입니다.</p>
             </div>
 
         </div>
     </section>
 
-    <!-- Fan Interactive Zone -->
-    <section id="fanzone">
-        <div class="fan-zone">
-            <h2 style="font-size: 2rem; margin-bottom: 0.5rem; color: var(--bts-light-purple);">💜 ARMY Message Wall</h2>
-            <p style="color: #AAA;">방탄소년단에게 전하고 싶은 한 줄 메시지를 남겨보세요!</p>
-            
-            <form class="fan-input-group" onsubmit="addMessage(event)">
-                <input type="text" id="msgInput" class="fan-input" placeholder="보라해💜 메시지를 입력하세요" required>
-                <button type="submit" class="btn-purple" style="border-radius: 25px; padding: 0.8rem 1.5rem;">보내기</button>
-            </form>
-            
-            <div id="messageBoard" style="margin-top: 2rem; display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
-                <!-- 메시지가 표시되는 공간 -->
+    <!-- 공지사항 및 최근 브리핑 -->
+    <section id="notice" style="background-color: #F4F2EA; border-top: 1px solid #E5E0D8; border-bottom: 1px solid #E5E0D8; max-width: 100%; padding: 5rem 10%;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <div class="section-header">
+                <h2 class="section-title">청와대 소식</h2>
+            </div>
+            <div class="notice-board">
+                <a href="#" class="notice-item">
+                    <span class="notice-title">[안내] 청와대 야간 개방 '밤의 야행' 관람 신청 일정 안내</span>
+                    <span class="notice-date">2026.07.20</span>
+                </a>
+                <a href="#" class="notice-item">
+                    <span class="notice-title">[공지] 헬기장 야외 문화 공연 개최 및 우천 시 일정 안내</span>
+                    <span class="notice-date">2026.07.15</span>
+                </a>
+                <a href="#" class="notice-item">
+                    <span class="notice-title">[보도] 청와대 국보급 고건축 특별 전시회 개막 안내</span>
+                    <span class="notice-date">2026.07.02</span>
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- 푸터 -->
     <footer>
-        <p>&copy; BIGHIT MUSIC & HYBE. All Rights Reserved.</p>
-        <p style="margin-top: 5px; color: #444;">Fan-made Page for BTS & ARMY</p>
+        <p><strong>대한민국 청와대</strong> | 서울특별시 종로구 청와대로 1</p>
+        <p>&copy; Office of the President. All Rights Reserved.</p>
     </footer>
 
-    <!-- JavaScript Interactive Code -->
-    <script>
-        let cheerCount = 0;
-
-        function cheerUp() {
-            cheerCount++;
-            alert('🔮 아미밤을 반짝였습니다! (누적 응원 수: ' + cheerCount + '회)\n보라해! 💜');
-        }
-
-        function addMessage(e) {
-            e.preventDefault();
-            const input = document.getElementById('msgInput');
-            const board = document.getElementById('messageBoard');
-            
-            if(input.value.trim() !== "") {
-                const badge = document.createElement('span');
-                badge.style.background = 'rgba(138, 43, 226, 0.3)';
-                badge.style.border = '1px solid var(--bts-light-purple)';
-                badge.style.padding = '8px 16px';
-                badge.style.borderRadius = '20px';
-                badge.style.fontSize = '0.9rem';
-                badge.style.color = '#FFF';
-                badge.style.animation = 'fadeIn 0.5s ease';
-                badge.innerText = '💜 ' + input.value;
-                
-                board.prepend(badge);
-                input.value = '';
-            }
-        }
-    </script>
 </body>
 </html>
